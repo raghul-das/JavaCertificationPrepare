@@ -38,14 +38,4 @@ public class User {
     public void setBorrowedBooks(List<Book> borrowedBooks) {
         this.borrowedBooks = borrowedBooks;
     }
-
-    public void borrowBook(Book book){
-        borrowedBooks.add(book);
-        book.setAvailable(false);
-    }
-
-    public void returnBook(Book book){
-        borrowedBooks.remove(book);
-        book.setAvailable(true);
-    }
 }

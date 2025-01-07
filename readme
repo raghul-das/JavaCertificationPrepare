@@ -1,0 +1,12 @@
+Core Classes and Models
+==========================
+	•	Book: Represents books with attributes like title, author, genre, publicationDate, availability.
+	•	User: Represents library users with name, membershipId, and a list of borrowed books.
+	•	Loan: Tracks when a book is borrowed, its due date, and whether it’s returned.
+
+Basic Functionalities
+==========================
+	•	Add a Book: Functionality for the library admin to add books.
+	•	Register a User: Functionality for users to register for library membership.
+	•	Borrow a Book: Borrowing books, ensuring they’re available.
+	•	Return a Book: Returning books and updating their status.

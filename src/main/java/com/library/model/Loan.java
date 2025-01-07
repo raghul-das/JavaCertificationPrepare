@@ -15,6 +15,7 @@ public class Loan {
         this.user = user;
         this.borrowDate = borrowDate;
         this.dueDate = dueDate;
+        this.isReturned = false;
     }
 
     public Book getBook() {
@@ -57,23 +58,12 @@ public class Loan {
         isReturned = returned;
     }
 
-  /*  @Override
-    public String toString() {
-        return "Loan{" +
-                "book=" + book +
-                ", user=" + user +
-                ", borrowDate=" + borrowDate +
-                ", dueDate=" + dueDate +
-                ", isReturned=" + isReturned +
-                '}';
-    }*/
-
     @Override
     public String toString() {
         return "Loan{" +
                 "book=" + book.getTitle() +
                 ", user=" + user.getName() +
-                ", dueDate=" + dueDate +
+                ", borrowDate=" + borrowDate +
                 ", dueDate=" + dueDate +
                 ", isReturned=" + isReturned +
                 '}';
