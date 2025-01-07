@@ -6,14 +6,16 @@ public class Task {
     private String name;
     private String priority;
     private String status;
-    private String salary;
+    private int salary;
+    private String department;
 
-    public Task(int id, String name, String priority, String status, String salary) {
+    public Task(int id, String name, String priority, String status, int salary, String department) {
         this.id = id;
         this.name = name;
         this.priority = priority;
         this.status = status;
         this.salary = salary;
+        this.department = department;
     }
 
     public int getId() {
@@ -48,18 +50,26 @@ public class Task {
         this.status = status;
     }
 
-    public String getSalary(){
+    public int getSalary(){
         return salary;
     }
 
-    public void setSalary(String salary){
+    public void setSalary(int salary){
         this.salary = salary;
+    }
+
+    public String getDepartment(){
+        return department;
+    }   
+
+    public void setDepartment(String department){
+        this.department = department;
     }
 
     @Override
     public String toString(){
         return "Task ID: " + id + ", Task Name: " + name + ", Priority: " 
-                + priority + ", Status: " + status + ", Salary: " + salary;
+                + priority + ", Status: " + status + ", Salary: " + salary + ", Department: " + department;
     }
 
 

@@ -1,9 +1,12 @@
 package collection_project;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Stack;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TaskList {
@@ -61,5 +64,44 @@ public class TaskList {
         listOfTasks.forEach(System.out::println);
     }
 
+     public void printHighSalaryTasks() {
+         List<Task> highSalary = listOfTasks.stream().filter(task -> task.getSalary() > 50000).collect(Collectors.toList());
+         System.out.println("High Salary Tasks: ");
+         highSalary.forEach(System.out::println);
+     }
 
+     
+     
+     public void highestSalary(){
+
+        Optional<Task> task = listOfTasks.stream().max(Comparator.comparingDouble(Task::getSalary));
+        if(task.isPresent()){
+            System.out.println("Highest Salary Task: " + task.get());
+        }
+
+        listOfTasks.stream().max((t1, t2) -> t1.getSalary() - t2.getSalary()).ifPresent(System.out::println);
+     }
+
+    public void financeDepEmployees(String dep) {
+        
+       List<String> names = listOfTasks.stream().filter(task -> task.getDepartment().equalsIgnoreCase(dep)).
+                                    map(Task::getName).collect(Collectors.toList());
+
+                names.forEach(System.out::println);
+    }
+
+    //count number of employees in a department
+
+    public void employeeCount(String dep){
+        
+        long count = listOfTasks.stream().filter(task -> task.getDepartment().equalsIgnoreCase(dep)).count();
+        System.out.println("Number of Employees in " + dep + " Department: " + count);
+
+        listOfTasks.stream().collect(Collectors.groupingBy(Task::getDepartment, Collectors.counting()))
+                                    .forEach((x, y) -> System.out.println("Department: "+x +"Count: " + y));
+        
+    }
+
+
+     
 }
